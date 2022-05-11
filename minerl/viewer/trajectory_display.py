@@ -267,7 +267,8 @@ class HumanTrajectoryDisplay(TrajectoryDisplayBase):
                 pass
 
         # Update mouse poisiton.
-        delta_y, delta_x = action['camera']
+        # delta_y, delta_x = action['camera']
+        delta_y, delta_x = 0, 0
         self.camera_info_label.document.text = "[{0:.2f},{1:.2f}]".format(float(delta_y), float(delta_x))
         delta_x = np.clip(delta_x / 60, -1, 1) * self.camera_rect.width / 2
         delta_y = np.clip(delta_y / 60, -1, 1) * self.camera_rect.height / 2

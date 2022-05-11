@@ -175,17 +175,19 @@ class RewardForMissionEnd(RewardHandler):
     def to_string(self) -> str:
         return "reward_for_mission_end"
 
+    #Added reward for death
     def xml_template(self) -> str:
         return str(
-            """<RewardForMissionEnd>
+            """<RewardForMissionEnd rewardForDeath="{{ reward_for_death }}"> 
                     <Reward description="{{ description }}" reward="{{ reward }}" />
                 </RewardForMissionEnd>"""
         )
 
-    def __init__(self, reward: int, description: str = "out_of_time"):
+    def __init__(self, reward: int, description: str = "out_of_time", reward_for_death: int = 0):
         super().__init__()
         self.reward = reward
         self.description = description
+        self.reward_for_death = reward_for_death
 
     def from_universal(self, obs):
         # TODO: IMPLEMENT THE FROM UNVIERSAL HERE. 
@@ -217,7 +219,7 @@ class RewardForTouchingBlockType(RewardHandler):
         return str(
             """<RewardForTouchingBlockType>
                     {% for block in blocks %}
-                    <Block reward="{{ block.reward }}" type="{{ block.type }}" behaviour="{{ block.behaviour }}" />
+                    <Block reward="{{ block.reward }}" type="{{ block.type }}" behaviour="{{ block.behaviour }}"/>
                     {% endfor %}
                 </RewardForTouchingBlockType>"""
         )

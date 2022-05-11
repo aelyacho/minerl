@@ -151,3 +151,36 @@ class VillageSpawnDecorator(Handler):
 
     def to_string(self) -> str:
         return "village_spawn"
+
+
+class ClassroomDecorator(Handler): #ADDED
+    def __init__(self, seed, to_draw: str):
+        self.to_draw = to_draw
+        self.seed = seed
+
+    def xml_template(self) -> str:
+        tmp = """<ClassroomDecorator seed="{{seed}}" >{{to_draw}}</ClassroomDecorator>"""
+        return tmp
+
+    def to_string(self) -> str:
+        return "classroom_decorator"
+
+
+class MazeDecorator(Handler): #ADDED
+    def __init__(self, seed, to_draw: str):
+        self.to_draw = to_draw
+        self.seed = seed
+
+    def xml_template(self) -> str:
+        tmp = """<MazeDecorator>
+        <Seed>{{seed}}</Seed>
+        <MaterialSeed>{{seed}}</MaterialSeed>
+        {{to_draw}}
+        </MazeDecorator>"""
+        return tmp
+
+    def to_string(self) -> str:
+        return "maze_decorator"
+
+
+

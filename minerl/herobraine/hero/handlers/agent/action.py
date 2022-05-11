@@ -53,7 +53,7 @@ class Action(TranslationHandler):
         else:
             adjective = str(x)
         cmd += "{} {}".format(verb, adjective)
-
+        #print('\n\nCMD CALLED IN act.py:', cmd)
         return cmd
 
     def __or__(self, other):
