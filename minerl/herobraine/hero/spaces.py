@@ -466,7 +466,7 @@ class Text(MineRLSpace):
     self.observation_space = spaces.Text([1])
     """
 
-    def no_op(self):
+    def no_op(self, batch_shape):
         return ""
 
     def create_flattened_space(self):
