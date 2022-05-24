@@ -482,7 +482,7 @@ class Text(MineRLSpace):
 
     def __init__(self, shape):
         super().__init__(shape, np.unicode_)
-        warnings.warn("The Text MineRLSpace class is not fully implemented. This may cause problems when sampling an action of this type (even when getting a noop).")
+        #warnings.warn("The Text MineRLSpace class is not fully implemented. This may cause problems when sampling an action of this type (even when getting a noop).")
 
     def sample(self):
         total_strings = np.prod(self.shape)
